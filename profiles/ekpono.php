@@ -362,7 +362,7 @@ input[type=text] {
                     processData(xhttp.responseText);
                 }
             };
-            xhttp.open("POST", "http://old.hng.fun/profiles/jaycodes.php", true);
+            xhttp.open("POST", "http://old.hng.fun/profiles/ekpono.php", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("ques="+ques.value);
         }
@@ -370,6 +370,7 @@ input[type=text] {
             data = JSON.parse(data);
             console.log(data);
             var answer = data.answer;
+            console.log(answer);
             //Choose a random response from available
             if(Array.isArray(answer)){
                 if(answer.length !=0){
