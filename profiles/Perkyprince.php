@@ -111,14 +111,18 @@
       ?>
         <div class="card">
           <img class="smaller-image thick-green-border" src="http://res.cloudinary.com/perkyprince/image/upload/v1524546688/Camera1.jpg" alt="Perkyprince" style="width:80%">
-          <h1 class="main"><?php echo $user["name"]?></h1>
-          <p class="title">Intern at HNGInternship4</p>
-          <p><ul id="about">
+          <div>
+            <h1 class="main"><?php echo $user["name"]?></h1>
+            <p class="title">Intern at HNGInternship4</p>
+          </div>
+          <div>
+            <ul id="about">
               <li>Web Developer/Designer</li>
               <li>Surveyor</li>
               <li>GIS Analyst</li>
               <li>Owerri, Imo state, Nigeria</li>
             </ul>
+          </div>
           <div>
             <a href="https://github.com/Perkyprince" target="_blank"><i class="fa fa-github"></i></a>
             <a href="https://www.instagram.com/princewillherberts/" target="_blank"><i class="fa fa-instagram"></i></a>
