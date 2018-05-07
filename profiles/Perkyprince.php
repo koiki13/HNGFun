@@ -52,7 +52,7 @@
             font-style: normal;
             font-size: 30px;
           }
-          
+
           #about{
             text-align: left;
             font-weight: bold;
@@ -137,6 +137,7 @@
             color: white;
             background-color: #000;
             text-align: center;
+            margin: auto;
             cursor: pointer;
             max-width: 50%;
             font-size: 18px;
@@ -158,26 +159,17 @@
 
     <body>
       <?php
-        require 'db.php';
+    global $conn;
+    try {
+        $sql2 = 'SELECT * FROM interns_data WHERE username="Epospiky"';
+        $q2 = $conn->query($sql2);
+        $q2->setFetchMode(PDO::FETCH_ASSOC);
+        $my_data = $q2->fetch();
+    } catch (PDOException $e) {
+        throw $e;
+    }
+    ?>
 
-      $select = $conn->query("SELECT * FROM secret_word LIMIT 1");
-          $select->setFetchMode(PDO::FETCH_ASSOC);
-          $result= $select->fetch();
-          $secret_word = $result['secret_word'];
-
-
-      $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'perkyprince'");
-          $result2->setFetchMode(PDO::FETCH_ASSOC);
-          $user = $result2->fetch();
-
-      // $query = "SELECT * FROM secret_word LIMIT 1";
-      // $result = mysqli_query($conn, $query);
-      // while($secret_word= mysqli_fetch_assoc($result))
-
-      // $query2= "SELECT * FROM interns_data WHERE username = 'perkyprince'";    
-      // $result2 = mysqli_query($conn, $query2);
-      // while ($user = mysqli_fetch_assoc($result2));
-      ?>
 
 
       <?php
@@ -301,7 +293,9 @@
 
                       
 
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
                 </div>
                 <div class="modal-body "  > 
                   <div class="chat" id="chat">
