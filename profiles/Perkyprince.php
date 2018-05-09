@@ -1,25 +1,14 @@
- <?php
-        require 'db.php';
-
-      $select = $conn->query("SELECT * FROM secret_word LIMIT 1");
-          $select->setFetchMode(PDO::FETCH_ASSOC);
-          $result= $select->fetch();
-          $secret_word = $result['secret_word'];
-
-
-      $result2 = $conn->query("SELECT * FROM interns_data WHERE username = 'perkyprince'");
-          $result2->setFetchMode(PDO::FETCH_ASSOC);
-          $user = $result2->fetch();
-
-      // $query = "SELECT * FROM secret_word LIMIT 1";
-      // $result = mysqli_query($conn, $query);
-      // while($secret_word= mysqli_fetch_assoc($result))
-
-      // $query2= "SELECT * FROM interns_data WHERE username = 'perkyprince'";    
-      // $result2 = mysqli_query($conn, $query2);
-      // while ($user = mysqli_fetch_assoc($result2));
-      ?>
-
+  <?php
+    global $conn;
+    try {
+        $sql2 = 'SELECT * FROM interns_data WHERE username="Epospiky"';
+        $q2 = $conn->query($sql2);
+        $q2->setFetchMode(PDO::FETCH_ASSOC);
+        $my_data = $q2->fetch();
+    } catch (PDOException $e) {
+        throw $e;
+    }
+    ?>
 
       <?php
     try {
@@ -112,7 +101,7 @@
  <!DOCTYPE html>
 <html>
     <head>
-        <title>Profle of Perkyprince</title>
+        <title>Profile of Perkyprince</title>
         <meta charset="utf-8">
         <meta name="description" content="This page is a personal profile page about the author">
         <meta name="keywords" content="HTML5, CSS, Javascript, PHP, Profile, HNG, About, Internship, Chat, Chatbot">
@@ -287,7 +276,7 @@
         <div class="card">
           <img class="smaller-image thick-green-border" src="http://res.cloudinary.com/perkyprince/image/upload/v1524546688/Camera1.jpg" alt="Perkyprince" style="width:80%">
           <div>
-            <h1 class="main"><?php echo $user["name"]?></h1>
+            <h1 class="main"><?php echo $name;?></h1>
             <p class="title">Intern at HNGInternship4</p>
           </div>
           <div>
