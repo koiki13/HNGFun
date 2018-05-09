@@ -1,7 +1,7 @@
   <?php
     global $conn;
     try {
-        $sql2 = 'SELECT * FROM interns_data WHERE username="Epospiky"';
+        $sql2 = 'SELECT * FROM interns_data WHERE username="Perkyprince"';
         $q2 = $conn->query($sql2);
         $q2->setFetchMode(PDO::FETCH_ASSOC);
         $my_data = $q2->fetch();
@@ -276,7 +276,7 @@
         <div class="card">
           <img class="smaller-image thick-green-border" src="http://res.cloudinary.com/perkyprince/image/upload/v1524546688/Camera1.jpg" alt="Perkyprince" style="width:80%">
           <div>
-            <h1 class="main"><?php echo $name;?></h1>
+            <h1 class="main"><?php echo $e;?></h1>
             <p class="title">Intern at HNGInternship4</p>
           </div>
           <div>
