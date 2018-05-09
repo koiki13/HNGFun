@@ -122,13 +122,13 @@ function askQuestion($input)
                 return "The right format is train:yourquestion#youranswer#password";
         } else {
             if (preg_match('/\baboutbout\b/',$input)) {
-                return "Adokiye v1.0";
+                return "lexmill v1.0";
             } else if (preg_match("/\b($time)\b/",$input)) {
                 return gettTime();
             } else if (preg_match('/\bhelp\b/',$input)) {
                 return "Enter train:yourquestion?#youranswer#password to add more questions to dummy me<br/>Click on restart to clear our conversation and start again<br/>";
             }else if($input=="you are mad"||$input == "you're mad"){
-                return "YOUR FATHER";
+                return "YOU ARE NOT ETHICAL";
             }else if(preg_match("/\bquote\b/",$input)){
                 return getMyquote();
             }else if(preg_match("/\bjoke\b/",$input)){
