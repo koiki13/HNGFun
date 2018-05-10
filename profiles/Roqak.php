@@ -127,7 +127,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(empty($rows)){
               echo json_encode([
               'status' => 0,
-              'answer' => "I am sorry, I cannot answer your question now. You could train me to answer the question."
+              'answer' => "I am sorry, I cannot answer your question now. Why don't you train me?"
             ]);
             return;
           }else{
@@ -213,6 +213,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   li{
     list-style-type: none;
   }
+  #botresponse{
+    background-color: #030404;
+  }
+  #sentmessage{
+    background-color: gray;
+  }
+  #mchats{
+    overflow-y: auto;
+  }
   </style>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -245,13 +254,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
       <input type="text" placeholder="message" name="question"><button id="send" name="send">Send</button>
       </form>
       </footer>
-        chat
-        <ul id="chats">
+        <div id="mchats">
+          <ul id="chats">
         <?php
 
         ?>
         </ul>
-      
+
+        </div>      
       </div>
 
   </div>
@@ -264,7 +274,7 @@ $(document).ready(function(){
     e.preventDefault();
     var MBox = $('input[name=question]');
     var question = MBox.val();
-    $("#chats").append("<li>" + question + "</li>");
+    $("#chats").append("<li id='sentmessage'>YOU : " + question + "</li>");
 
 
     // $.ajax({
@@ -287,7 +297,7 @@ $(document).ready(function(){
       data: {question: question},
       dataType: "json",
       success: function(response){
-        $("#chats").append("<li>" + response.answer + "</li>");
+        $("#chats").append("<li id ='botresponse'>VEER : " + response.answer + "</li>");
       },
       error: function(error){
         console.log(error);
