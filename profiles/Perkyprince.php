@@ -271,14 +271,11 @@
         </style>
     </head>
 
-    <body class="oj-web-applayout-body">
+    <body>
       
 
-      <div class="card container oj-web-applayout-page">
-        <div class="content oj-web-applayout-max-width oj-web-applayout-content">
-          <div class="oj-flex-item oj-sm-9">
-            <img class="smaller-image thick-green-border oj-sm-center img-responsive" height="250px" src="http://res.cloudinary.com/perkyprince/image/upload/v1524546688/Camera1.jpg" alt="Perkyprince" style="width:80%">
-          </div>
+        <div class="card">
+          <img class="smaller-image thick-green-border img-responsive" src="http://res.cloudinary.com/perkyprince/image/upload/v1524546688/Camera1.jpg" alt="Perkyprince's Picture" style="width:80%">
           <div>
             <h1 class="main">Iwuala Princewill</h1>
             <p class="title">Intern at HNGInternship4</p>
@@ -328,30 +325,29 @@
               </div>
             </div>
           </div>
-        </div>
-        <script>
-          var outputArea = $("#chat");
-          $("#user-input-form").on("submit", function(e) {
-            e.preventDefault();
-            var message = $("#user-input").val();
-            outputArea.append(`<p class='me'>${message}</p>`);
-            $.ajax({
-              url: 'profile.php?id=perkyprince',
-              type: 'POST',
-              data:  'user-input=' + message,
-              success: function(response) {
-                var result = $($.parseHTML(response)).find("#result").text();
-                setTimeout(function() {
-                  outputArea.append("<p class='stev'>" + result + "</p>");
-                  $('#chat').animate({
-                    scrollTop: $('#chat').get(0).scrollHeight
-                  }, 1500);
-                }, 250);
-              }
+          <script>
+            var outputArea = $("#chat");
+            $("#user-input-form").on("submit", function(e) {
+              e.preventDefault();
+              var message = $("#user-input").val();
+              outputArea.append(`<p class='me'>${message}</p>`);
+              $.ajax({
+                url: 'profile.php?id=perkyprince',
+                type: 'POST',
+                data:  'user-input=' + message,
+                success: function(response) {
+                  var result = $($.parseHTML(response)).find("#result").text();
+                  setTimeout(function() {
+                    outputArea.append("<p class='stev'>" + result + "</p>");
+                    $('#chat').animate({
+                      scrollTop: $('#chat').get(0).scrollHeight
+                    }, 1500);
+                  }, 250);
+                }
+              });
+              $("#user-input").val("");
             });
-            $("#user-input").val("");
-          });
-        </script> 
-      </div> 
+          </script> 
+        </div> 
     </body>
 </html>
