@@ -242,6 +242,7 @@
 
       // Add user's request and bot's response to chat interface
       $("#send").click(function() {
+	      alert(" got here ");
         var input = $("#request").val();        
         if ($.trim(input)) {
           $("#chat-area table").append("<tr><td><div class='user-bubble'><p>"+input+"</p></div></td></tr>");
